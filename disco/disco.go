@@ -64,14 +64,10 @@ func Discover(url *url.URL) (feeds []Feed, err error) {
 		}
 		time.Sleep(time.Duration(3) * time.Second)
 	}
-	if resp.Body != nil {
-		// If the body is present then we'll read it. This gets around when the server closes the connection before we have a chance to read, which happens with servers that don't support HTTP keep-alive.
-		err = nil
-		defer resp.Body.Close()
-	} else if err != nil {
-		// The body is missing and there's an error. This is probably a DNS lookup failure.
+	if err != nil {
 		return
 	}
+	defer resp.Body.Close()
 
 	doc, err := html.Parse(resp.Body)
 	if err != nil {
