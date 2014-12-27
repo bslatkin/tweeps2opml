@@ -1,0 +1,1218 @@
+{
+  "users": [
+    {
+      "id": 18194778,
+      "id_str": "18194778",
+      "name": "Andy Hunt",
+      "screen_name": "PragmaticAndy",
+      "location": "Raleigh",
+      "profile_location": null,
+      "description": "Andy Hunt is a programmer, consultant, author and publisher.",
+      "url": "http://t.co/f2wj56fFcp",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/f2wj56fFcp",
+              "expanded_url": "http://andy.pragprog.com",
+              "display_url": "andy.pragprog.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 10873,
+      "friends_count": 86,
+      "listed_count": 764,
+      "created_at": "Wed Dec 17 17:59:40 +0000 2008",
+      "favourites_count": 6,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 4490,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "044A4E",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/3626632/music_bkg.jpg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/3626632/music_bkg.jpg",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1533612762/avatar_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1533612762/avatar_normal.png",
+      "profile_link_color": "1903BF",
+      "profile_sidebar_border_color": "123201",
+      "profile_sidebar_fill_color": "8BAE7A",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 2327560616,
+      "id_str": "2327560616",
+      "name": "the new stack",
+      "screen_name": "thenewstack",
+      "location": "Portland, Oregon",
+      "profile_location": null,
+      "description": "All about the new stacks that change the way we live and work.",
+      "url": "http://t.co/GAtnYGjkPr",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/GAtnYGjkPr",
+              "expanded_url": "http://thenewstack.io",
+              "display_url": "thenewstack.io",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1761,
+      "friends_count": 222,
+      "listed_count": 63,
+      "created_at": "Tue Feb 04 18:48:50 +0000 2014",
+      "favourites_count": 41,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 425,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/461139730499772419/m-n-U_By.png",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/461139730499772419/m-n-U_By.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/467521298269081600/Tk20wab0_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/467521298269081600/Tk20wab0_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/2327560616/1400300698",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 14770578,
+      "id_str": "14770578",
+      "name": "Joe Walnes",
+      "screen_name": "joewalnes",
+      "location": "Chicago",
+      "profile_location": null,
+      "description": "Software and hardware. Designer. Developer. Maker. Inventor. Procrastinator. Ex-Google. Ex-Thoughtworks. Inventor of http://t.co/2Mtr285TSR",
+      "url": "https://t.co/CT5RyaL485",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/CT5RyaL485",
+              "expanded_url": "https://github.com/joewalnes",
+              "display_url": "github.com/joewalnes",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+            {
+              "url": "http://t.co/2Mtr285TSR",
+              "expanded_url": "http://novaphotos.com",
+              "display_url": "novaphotos.com",
+              "indices": [
+                117,
+                139
+              ]
+            }
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 36669,
+      "friends_count": 31321,
+      "listed_count": 777,
+      "created_at": "Wed May 14 07:51:45 +0000 2008",
+      "favourites_count": 5189,
+      "utc_offset": 0,
+      "time_zone": "London",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 6934,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "131516",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1947402120/joewalnes-photo_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1947402120/joewalnes-photo_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/14770578/1378992033",
+      "profile_link_color": "005799",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "EFEFEF",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 823957466,
+      "id_str": "823957466",
+      "name": "Hanna Wallach",
+      "screen_name": "hannawallach",
+      "location": "Brooklyn, NY",
+      "profile_location": null,
+      "description": "CS professor. MSR NYC. Computational social science, data science, machine learning, parkour, Python, roller derby, sloths, vegan treats, visualization.",
+      "url": "http://t.co/OGOyshzAHe",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/OGOyshzAHe",
+              "expanded_url": "http://dirichlet.net/",
+              "display_url": "dirichlet.net",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 2421,
+      "friends_count": 477,
+      "listed_count": 161,
+      "created_at": "Fri Sep 14 20:38:24 +0000 2012",
+      "favourites_count": 296,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 334,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "CCCCCC",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/521040468528754688/_Ayh3ZCE.jpeg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/521040468528754688/_Ayh3ZCE.jpeg",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/2623320981/kinlr53ma1flkp9jerk4_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/2623320981/kinlr53ma1flkp9jerk4_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/823957466/1347986011",
+      "profile_link_color": "999999",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 14111434,
+      "id_str": "14111434",
+      "name": "Jackie Kazil",
+      "screen_name": "JackieKazil",
+      "location": "",
+      "profile_location": null,
+      "description": "Loves data science, rescued pups, @PyLadiesDC, @DCFemTech, @django_district, | Opinions are my own. | Josh's impression of me - https://t.co/woXjzFlUfh",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": [
+            {
+              "url": "https://t.co/woXjzFlUfh",
+              "expanded_url": "https://vine.co/v/O5Mn6aOJtQY",
+              "display_url": "vine.co/v/O5Mn6aOJtQY",
+              "indices": [
+                128,
+                151
+              ]
+            }
+          ]
+        }
+      },
+      "protected": false,
+      "followers_count": 1991,
+      "friends_count": 1915,
+      "listed_count": 160,
+      "created_at": "Mon Mar 10 04:22:56 +0000 2008",
+      "favourites_count": 2027,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 7907,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/444296717446287360/VGK7qhQa_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/444296717446287360/VGK7qhQa_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/14111434/1398392845",
+      "profile_link_color": "4A913C",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "000000",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 186923,
+      "id_str": "186923",
+      "name": "Jon Pierce",
+      "screen_name": "jonpierce",
+      "location": "SF + Boston",
+      "profile_location": null,
+      "description": "hacker / startup guy / cofounder of @awesomefound / founder of @betahouse / organizer of @angelbootcamp  / indie music and beer snob / cyclist / Mets fan",
+      "url": "http://t.co/9ev1UwLrc7",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/9ev1UwLrc7",
+              "expanded_url": "http://jonpierce.com/",
+              "display_url": "jonpierce.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 5620,
+      "friends_count": 478,
+      "listed_count": 271,
+      "created_at": "Sat Dec 23 03:18:26 +0000 2006",
+      "favourites_count": 513,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 6059,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "022330",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/512049909608882176/lH_9USOs_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/512049909608882176/lH_9USOs_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/186923/1393859380",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "C0DFEC",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 11250,
+      "id_str": "11250",
+      "name": "Jeremy Keith",
+      "screen_name": "adactio",
+      "location": "Brighton, East Sussex, England",
+      "profile_location": null,
+      "description": "An Irish web developer working with @Clearleft curating @dConstruct, playing music with @SalterCane, and guy behind the curtain of @Huffduffer & @SessionUpdates",
+      "url": "https://t.co/bdm9PvA69z",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/bdm9PvA69z",
+              "expanded_url": "https://adactio.com/",
+              "display_url": "adactio.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 157106,
+      "friends_count": 497,
+      "listed_count": 3749,
+      "created_at": "Wed Nov 01 13:12:51 +0000 2006",
+      "favourites_count": 1696,
+      "utc_offset": 0,
+      "time_zone": "London",
+      "geo_enabled": true,
+      "verified": true,
+      "statuses_count": 20121,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FFFFFF",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/5952/background.jpg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/5952/background.jpg",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/477375893183033344/xPth0Xgn_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/477375893183033344/xPth0Xgn_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/11250/1398077278",
+      "profile_link_color": "113355",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "EEEEEE",
+      "profile_text_color": "333333",
+      "profile_use_background_image": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 174924801,
+      "id_str": "174924801",
+      "name": "Ari Bader-Natal",
+      "screen_name": "aribadernatal",
+      "location": "San Francisco",
+      "profile_location": null,
+      "description": "Principal Learning Architect at @MinervaProject, building tools for learning for @MinervaSchools. Still running @StudioSketchpad.",
+      "url": "https://t.co/ykvPTOeQZz",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/ykvPTOeQZz",
+              "expanded_url": "https://aribadernatal.com",
+              "display_url": "aribadernatal.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 608,
+      "friends_count": 600,
+      "listed_count": 32,
+      "created_at": "Thu Aug 05 04:36:44 +0000 2010",
+      "favourites_count": 84,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 869,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "022330",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/378800000505009561/ec554db1f93a798d9fe9cd43139bf935_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000505009561/ec554db1f93a798d9fe9cd43139bf935_normal.png",
+      "profile_link_color": "004E6B",
+      "profile_sidebar_border_color": "A8C7F7",
+      "profile_sidebar_fill_color": "C0DFEC",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 1845211,
+      "id_str": "1845211",
+      "name": "Nick Doty",
+      "screen_name": "npdoty",
+      "location": "Oakland, California",
+      "profile_location": null,
+      "description": "Programmer, philosopher, information science PhD student. I also work on privacy at the W3C.",
+      "url": "https://t.co/1NaATITSf1",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/1NaATITSf1",
+              "expanded_url": "https://npdoty.name",
+              "display_url": "npdoty.name",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 841,
+      "friends_count": 769,
+      "listed_count": 49,
+      "created_at": "Thu Mar 22 06:45:13 +0000 2007",
+      "favourites_count": 3956,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 1678,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "709397",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/66799771/map3.jpg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/66799771/map3.jpg",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/537757774877167616/DdfxdeBQ_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/537757774877167616/DdfxdeBQ_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/1845211/1398292803",
+      "profile_link_color": "094BBC",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "8C9B7E",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 12920742,
+      "id_str": "12920742",
+      "name": "Pius",
+      "screen_name": "_pius",
+      "location": "San Francisco, CA",
+      "profile_location": null,
+      "description": "Engineering and Product at @theinformation. Force for good. pius@alum.mit.edu",
+      "url": "http://t.co/3Xe2euPb2j",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/3Xe2euPb2j",
+              "expanded_url": "http://pius.me",
+              "display_url": "pius.me",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1172,
+      "friends_count": 621,
+      "listed_count": 70,
+      "created_at": "Thu Jan 31 22:09:31 +0000 2008",
+      "favourites_count": 8677,
+      "utc_offset": 12600,
+      "time_zone": "Tehran",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 7997,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "022330",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme15/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/537316308442828800/ZJ-ZK2lo_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/537316308442828800/ZJ-ZK2lo_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/12920742/1398197784",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "A8C7F7",
+      "profile_sidebar_fill_color": "C0DFEC",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 250188760,
+      "id_str": "250188760",
+      "name": "Ron Wyden",
+      "screen_name": "RonWyden",
+      "location": "Oregon & Washington, DC",
+      "profile_location": null,
+      "description": "U.S. Senator from Oregon. @SenateFinance Chairman. Follow @WydenPress for breaking news and updates from my staff.",
+      "url": "http://t.co/r0rVhwvtiA",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/r0rVhwvtiA",
+              "expanded_url": "http://wyden.senate.gov",
+              "display_url": "wyden.senate.gov",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 32814,
+      "friends_count": 298,
+      "listed_count": 1655,
+      "created_at": "Thu Feb 10 16:08:15 +0000 2011",
+      "favourites_count": 8,
+      "utc_offset": -21600,
+      "time_zone": "Central Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": true,
+      "statuses_count": 1795,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FFFFFF",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/537502357/bg.jpg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/537502357/bg.jpg",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/510068968627793920/yO7MNkce_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/510068968627793920/yO7MNkce_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/250188760/1398198071",
+      "profile_link_color": "1784B6",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 35432643,
+      "id_str": "35432643",
+      "name": "Addy Osmani",
+      "screen_name": "addyosmani",
+      "location": "London, England",
+      "profile_location": null,
+      "description": "Engineer at Google • Author • Chrome, Polymer • Creator of TodoMVC, @Yeoman, Web Starter Kit, grunt-uncss & others • Passionate about web tooling",
+      "url": "http://t.co/5I0JwBRd4h",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/5I0JwBRd4h",
+              "expanded_url": "http://www.addyosmani.com",
+              "display_url": "addyosmani.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 85727,
+      "friends_count": 1326,
+      "listed_count": 4294,
+      "created_at": "Sun Apr 26 08:40:11 +0000 2009",
+      "favourites_count": 9558,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 11087,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "000000",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/457352406351638528/mtKQFUEX.jpeg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/457352406351638528/mtKQFUEX.jpeg",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/422476220442234880/jlx9HMtr_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/422476220442234880/jlx9HMtr_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/35432643/1398198628",
+      "profile_link_color": "9D582E",
+      "profile_sidebar_border_color": "FFFFFF",
+      "profile_sidebar_fill_color": "56E372",
+      "profile_text_color": "0A0A0A",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 41760382,
+      "id_str": "41760382",
+      "name": "Rob Dodson",
+      "screen_name": "rob_dodson",
+      "location": "San Francisco, CA",
+      "profile_location": null,
+      "description": "Developer Advocate @ Google. I ♡ web components + polymer",
+      "url": "http://t.co/sQY2a7mins",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/sQY2a7mins",
+              "expanded_url": "http://robdodson.me",
+              "display_url": "robdodson.me",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 4410,
+      "friends_count": 689,
+      "listed_count": 185,
+      "created_at": "Fri May 22 05:25:48 +0000 2009",
+      "favourites_count": 1550,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 4726,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "F0F3F5",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/462113643/tileable_wood_texture.png",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/462113643/tileable_wood_texture.png",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/378800000232696683/736a167223708fbbb2e910da863541cc_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/378800000232696683/736a167223708fbbb2e910da863541cc_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/41760382/1375492059",
+      "profile_link_color": "C62211",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 5725652,
+      "id_str": "5725652",
+      "name": "Eric Lawrence",
+      "screen_name": "ericlaw",
+      "location": "Austin, TX",
+      "profile_location": null,
+      "description": "New dad. Author/speaker/IEuserAgent & MVP. Created Fiddler & SlickRun. PM @ MSFT 2001-2012. Now at Telerik to develop Fiddler full-time. My words are my own.",
+      "url": "http://t.co/0h4gWHxcmF",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/0h4gWHxcmF",
+              "expanded_url": "http://www.ericlawrence.com",
+              "display_url": "ericlawrence.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 3817,
+      "friends_count": 389,
+      "listed_count": 207,
+      "created_at": "Wed May 02 22:43:15 +0000 2007",
+      "favourites_count": 5341,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 16457,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C6E2EE",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme2/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/3047202482/460b68f9d65a17a7ea48685c2e063d8a_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/3047202482/460b68f9d65a17a7ea48685c2e063d8a_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/5725652/1402602299",
+      "profile_link_color": "1F98C7",
+      "profile_sidebar_border_color": "C6E2EE",
+      "profile_sidebar_fill_color": "DAECF4",
+      "profile_text_color": "663B12",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 52179618,
+      "id_str": "52179618",
+      "name": "Allison Kaptur",
+      "screen_name": "akaptur",
+      "location": "",
+      "profile_location": null,
+      "description": "@hackerschool facilitator and python programmer",
+      "url": "http://t.co/8cDtvxcFRH",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/8cDtvxcFRH",
+              "expanded_url": "http://akaptur.github.io",
+              "display_url": "akaptur.github.io",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 997,
+      "friends_count": 311,
+      "listed_count": 42,
+      "created_at": "Mon Jun 29 20:33:52 +0000 2009",
+      "favourites_count": 826,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 1150,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "C0DEED",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/2528977847/a7it9hkps8gzg1afaxwr_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/2528977847/a7it9hkps8gzg1afaxwr_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/52179618/1416294040",
+      "profile_link_color": "0084B4",
+      "profile_sidebar_border_color": "C0DEED",
+      "profile_sidebar_fill_color": "DDEEF6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": true,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 12819682,
+      "id_str": "12819682",
+      "name": "Mitchell Hashimoto",
+      "screen_name": "mitchellh",
+      "location": "San Francisco, CA",
+      "profile_location": null,
+      "description": "Founder of @HashiCorp. Creator of Vagrant, Packer, Serf, Consul, and Terraform. Lover of open source. Automation-obsessed developer.",
+      "url": "http://t.co/BWbPhJAB5Z",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/BWbPhJAB5Z",
+              "expanded_url": "http://about.me/mitchellh",
+              "display_url": "about.me/mitchellh",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 15143,
+      "friends_count": 158,
+      "listed_count": 594,
+      "created_at": "Tue Jan 29 07:56:05 +0000 2008",
+      "favourites_count": 14,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 19978,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "0F0F0F",
+      "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/159041570/xb1b980c20405d63f81c2c8fae842f4f.jpg",
+      "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/159041570/xb1b980c20405d63f81c2c8fae842f4f.jpg",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/2707460527/252a64411a339184ff375a96fb68dcb0_normal.png",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/2707460527/252a64411a339184ff375a96fb68dcb0_normal.png",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/12819682/1347989729",
+      "profile_link_color": "627E91",
+      "profile_sidebar_border_color": "404040",
+      "profile_sidebar_fill_color": "1C1C1C",
+      "profile_text_color": "666666",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 14449103,
+      "id_str": "14449103",
+      "name": "Kathleen Danielson",
+      "screen_name": "KathleenLD",
+      "location": "Berlin, Germany",
+      "profile_location": null,
+      "description": "FOSS, OSM, Feminism, Mental Health, DC, Berlin, craft beer, Project Management. OSMF board member. Previously: @Geo_DC organizer; @OpenStreetMapUS board member",
+      "url": null,
+      "entities": {
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1987,
+      "friends_count": 974,
+      "listed_count": 77,
+      "created_at": "Sun Apr 20 04:25:33 +0000 2008",
+      "favourites_count": 2073,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 22291,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "131516",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme14/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme14/bg.gif",
+      "profile_background_tile": true,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/2412153163/2k5daefr8k6jjmy5f77t_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/2412153163/2k5daefr8k6jjmy5f77t_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/14449103/1408525231",
+      "profile_link_color": "009999",
+      "profile_sidebar_border_color": "EEEEEE",
+      "profile_sidebar_fill_color": "EFEFEF",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 25858695,
+      "id_str": "25858695",
+      "name": "Armon Dadgar",
+      "screen_name": "armon",
+      "location": "San Francisco, CA",
+      "profile_location": null,
+      "description": "Co-founder of @hashicorp. Passionate about technology and startups. I love to build things.",
+      "url": "http://t.co/7C4IXSjRoS",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/7C4IXSjRoS",
+              "expanded_url": "http://armondadgar.com",
+              "display_url": "armondadgar.com",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 1835,
+      "friends_count": 192,
+      "listed_count": 67,
+      "created_at": "Sun Mar 22 18:50:31 +0000 2009",
+      "favourites_count": 1152,
+      "utc_offset": -28800,
+      "time_zone": "Pacific Time (US & Canada)",
+      "geo_enabled": true,
+      "verified": false,
+      "statuses_count": 5037,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "352726",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme5/bg.gif",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme5/bg.gif",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/440742246019637248/5gFsC5pv_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/440742246019637248/5gFsC5pv_normal.jpeg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/25858695/1398748473",
+      "profile_link_color": "D02B55",
+      "profile_sidebar_border_color": "829D5E",
+      "profile_sidebar_fill_color": "99CC33",
+      "profile_text_color": "3E4415",
+      "profile_use_background_image": true,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 17362193,
+      "id_str": "17362193",
+      "name": "Waldemar Kornewald",
+      "screen_name": "wkornewald",
+      "location": "Germany",
+      "profile_location": null,
+      "description": "Founder of mainmetrics (Saas payment analytics). Interested in PL design. Worked on Django-nonrel. Also founded pentotype wireframing app",
+      "url": "https://t.co/ExODYwqyiR",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/ExODYwqyiR",
+              "expanded_url": "https://www.mainmetrics.com",
+              "display_url": "mainmetrics.com",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 778,
+      "friends_count": 35,
+      "listed_count": 64,
+      "created_at": "Thu Nov 13 09:41:10 +0000 2008",
+      "favourites_count": 57,
+      "utc_offset": 3600,
+      "time_zone": "Berlin",
+      "geo_enabled": false,
+      "verified": false,
+      "statuses_count": 1565,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "1597B2",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/487134718123466752/Pg7pAn6q_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/487134718123466752/Pg7pAn6q_normal.jpeg",
+      "profile_link_color": "046995",
+      "profile_sidebar_border_color": "5ED4DC",
+      "profile_sidebar_fill_color": "78E3AD",
+      "profile_text_color": "3C3940",
+      "profile_use_background_image": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    },
+    {
+      "id": 14517538,
+      "id_str": "14517538",
+      "name": "Derek Willis",
+      "screen_name": "derekwillis",
+      "location": "MD/DC/NY/online",
+      "profile_location": null,
+      "description": "Working on The Upshot, mostly Congress and campaign finance. Keeping mold from happening. Also cricket. dwillis@nytimes.com",
+      "url": "http://t.co/BC1fmUxE9V",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "http://t.co/BC1fmUxE9V",
+              "expanded_url": "http://nytimes.com/upshot",
+              "display_url": "nytimes.com/upshot",
+              "indices": [
+                0,
+                22
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 8876,
+      "friends_count": 704,
+      "listed_count": 810,
+      "created_at": "Thu Apr 24 20:48:23 +0000 2008",
+      "favourites_count": 4319,
+      "utc_offset": -18000,
+      "time_zone": "Eastern Time (US & Canada)",
+      "geo_enabled": false,
+      "verified": true,
+      "statuses_count": 45296,
+      "lang": "en",
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "9BACE9",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/492346787080851456/sNvis_r-_normal.jpeg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/492346787080851456/sNvis_r-_normal.jpeg",
+      "profile_link_color": "0016FF",
+      "profile_sidebar_border_color": "87BC44",
+      "profile_sidebar_fill_color": "E0FF92",
+      "profile_text_color": "000000",
+      "profile_use_background_image": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": true,
+      "follow_request_sent": false,
+      "notifications": false,
+      "muting": false
+    }
+  ],
+  "next_cursor": 1486987236738237292,
+  "next_cursor_str": "1486987236738237292",
+  "previous_cursor": 0,
+  "previous_cursor_str": "0"
+}
