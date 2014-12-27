@@ -51,11 +51,9 @@ Generate an OPML file of my Twitter friends
     </head>
     <body>
     	<outline text="Twitter Friends" title="Twitter Friends">
-{{range .}}
-	{{if not .Error}}
+{{range .}}{{if not .Error}}
 			<outline htmlUrl="{{.ProfileURL}}" text="{{.ScreenName}} - {{.Title}}" title="{{.ScreenName}} - {{.Title}}" type="rss" version="RSS" xmlUrl="{{.URL.String}}" />
-	{{end}}
-{{end}}
+{{end}}{{end}}
 	    </outline>
     </body>
 </opml>
@@ -124,8 +122,13 @@ type DiscoveryResult struct {
 	Error      error
 }
 
-func discoverOne(screenName, profileUrl string, out chan<- DiscoveryResult, wg *sync.WaitGroup) {
+func discoverOne(screenName, profileUrl string, out chan<- DiscoveryResult, throttle chan int, wg *sync.WaitGroup) {
 	defer wg.Done()
+
+	token := <-throttle
+	defer func() {
+		throttle <- token
+	}()
 
 	parsed, err := url.Parse(profileUrl)
 	if err != nil {
@@ -162,9 +165,17 @@ func discoverOne(screenName, profileUrl string, out chan<- DiscoveryResult, wg *
 func discoverParallel(out chan<- DiscoveryResult, friends map[string]string) {
 	var wg sync.WaitGroup
 	wg.Add(len(friends))
-	for screenName, profileUrl := range friends {
-		go discoverOne(screenName, profileUrl, out, &wg)
+
+	// Limit the goroutines to N fetches in parallel
+	throttle := make(chan int, 5)
+	for i := 0; i < cap(throttle); i++ {
+		throttle <- i
 	}
+
+	for screenName, profileUrl := range friends {
+		go discoverOne(screenName, profileUrl, out, throttle, &wg)
+	}
+
 	wg.Wait()
 	close(out)
 }

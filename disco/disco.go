@@ -4,6 +4,7 @@ import (
 	"golang.org/x/net/html"
 	"net/http"
 	"net/url"
+	"time"
 )
 
 type Feed struct {
@@ -29,6 +30,7 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 			}
 		}
 		if rel == "alternate" && href != "" && (linkType == "application/atom+xml" || linkType == "application/rss+xml") {
+			// TODO: Trim the href
 			if parsed, err := url.Parse(href); err == nil {
 				result = append(result, Feed{
 					Title: title,
@@ -53,11 +55,23 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 }
 
 func Discover(url *url.URL) (feeds []Feed, err error) {
-	resp, err := http.Get(url.String())
-	if err != nil {
+	var resp *http.Response
+	for i := 0; i < 3; i++ {
+		// TODO: Handle EOF errors here by using req.Header.Add("Accept-Encoding", "identity")
+		resp, err = http.Get(url.String())
+		if err == nil {
+			break
+		}
+		time.Sleep(time.Duration(3) * time.Second)
+	}
+	if resp.Body != nil {
+		// If the body is present then we'll read it. This gets around when the server closes the connection before we have a chance to read, which happens with servers that don't support HTTP keep-alive.
+		err = nil
+		defer resp.Body.Close()
+	} else if err != nil {
+		// The body is missing and there's an error. This is probably a DNS lookup failure.
 		return
 	}
-	defer resp.Body.Close()
 
 	doc, err := html.Parse(resp.Body)
 	if err != nil {
