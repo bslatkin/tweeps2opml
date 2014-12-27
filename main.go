@@ -27,14 +27,15 @@ Generate an OPML file of my Twitter friends
 `))
 	friendsListTemplate = template.Must(template.New("").Parse(`
 <html><body>
+{{. | len}} friends
+<form action="/download" method="POST" target="_blank">
 {{range .}}
 	{{if .URL}}
-		{{.ScreenName}} = {{.URL}}
-		<br>
+		<input name="{{.ScreenName}}" value="{{.URL}}" type="hidden" />
 	{{end}}
-{{else}}
-No friends
 {{end}}
+<input type="submit" value="Download as OPML" />
+</form>
 </body></html>
 `))
 )
@@ -52,7 +53,8 @@ func listAllFriends(api *anaconda.TwitterApi) ([]anaconda.User, error) {
 	values.Set("include_user_entities", "false")
 	values.Set("count", "200")
 
-	for {
+	// We're only allowed 15 requests every 15 minutes, so that's the most we'll even attempt to do. That means the most contacts you can export is 15 * 200 = 3000.
+	for i := 0; i < 15; i++ {
 		cursor, err := api.GetFriendsList(values)
 		if err != nil {
 			log.Printf("Could not list friends with arguments=%#v err=%s", values, err)
@@ -62,6 +64,8 @@ func listAllFriends(api *anaconda.TwitterApi) ([]anaconda.User, error) {
 			break
 		}
 		result = append(result, cursor.Users...)
+		// TODO: Uncomment this break once we want to dump the whole list; this makes it so we don't burn through our quota while testing
+		break
 		values.Set("cursor", cursor.Next_cursor_str)
 	}
 
