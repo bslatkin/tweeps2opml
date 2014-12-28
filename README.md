@@ -38,3 +38,4 @@ gcloud preview app deploy app.yaml
 
 - Follow all rel="me" links and try to find feeds there too
 - Sites like about.me don't include those links in some cases; special case them?
+- Do the same thing for Facebook, LinkedIn, Google+, etc
