@@ -20,7 +20,9 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"sort"
+	"strconv"
 	"strings"
 	"text/template"
 )
@@ -81,7 +83,11 @@ func discoverParallel(out chan<- *Work, friends []Friend) {
 	defer close(input)
 
 	// Limit the goroutines to N fetches in parallel
-	for i := 0; i < 50; i++ {
+	maxParallel, err := strconv.Atoi(os.Getenv("PARALLEL_FETCHES_PER_USER"))
+	if err != nil {
+		maxParallel = 5
+	}
+	for i := 0; i < maxParallel; i++ {
 		go func() {
 			for work := range input {
 				doWork(work)

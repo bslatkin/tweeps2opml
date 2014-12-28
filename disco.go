@@ -17,7 +17,12 @@
 package main
 
 import (
+	"bytes"
+	"crypto/tls"
+	"io/ioutil"
+	"log"
 	"math/rand"
+	"net"
 	"net/http"
 	"net/url"
 	"sort"
@@ -26,6 +31,10 @@ import (
 
 	"golang.org/x/net/html"
 )
+
+func init() {
+	rand.Seed(time.Now().UTC().UnixNano())
+}
 
 type Feed struct {
 	Title string
@@ -74,22 +83,78 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 	return result
 }
 
-func Discover(url *url.URL) (feeds []Feed, err error) {
+// Use this for the first attempt.
+var transport http.RoundTripper = &http.Transport{
+	Proxy: http.ProxyFromEnvironment,
+	Dial: (&net.Dialer{
+		Timeout:   10 * time.Second,
+		KeepAlive: 0,
+	}).Dial,
+	TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+	TLSHandshakeTimeout: 10 * time.Second,
+	DisableKeepAlives:   true,
+}
+
+// Use this for flaky feeds.
+var flakyTransport http.RoundTripper = &http.Transport{
+	Proxy: http.ProxyFromEnvironment,
+	Dial: (&net.Dialer{
+		Timeout:   10 * time.Second,
+		KeepAlive: 0,
+	}).Dial,
+	TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+	TLSHandshakeTimeout: 10 * time.Second,
+	DisableKeepAlives:   true,
+	DisableCompression:  true,
+}
+
+func fetchUrl(url string) (result []byte, err error) {
+	var req *http.Request
 	var resp *http.Response
+	var client *http.Client
+
 	for i := 0; i < 3; i++ {
-		// TODO: Handle EOF errors here by using req.Header.Add("Accept-Encoding", "identity")
-		resp, err = http.Get(url.String())
-		if err == nil {
-			break
+		// Clear the error status before trying again.
+		err = nil
+
+		if i == 0 {
+			client = &http.Client{Transport: transport}
+		} else {
+			client = &http.Client{Transport: flakyTransport}
 		}
-		time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
+
+		req, err = http.NewRequest("GET", url, nil)
+		if err == nil {
+			if i > 0 {
+				// Avoid EOF errors caused by the remote server closing the connection early when the content is compressed.
+				req.Header.Add("Accept-Encoding", "identity")
+			}
+
+			resp, err = client.Do(req)
+			if err == nil {
+				defer resp.Body.Close()
+				result, err = ioutil.ReadAll(resp.Body)
+				if err == nil {
+					return
+				}
+			}
+		}
+		if err != nil {
+			sleepTime := time.Duration(100 + rand.Intn(2000))
+			log.Printf("Error fetching %s: %s. Will retry in %d milliseconds", url, err, sleepTime)
+			time.Sleep(sleepTime * time.Millisecond)
+		}
 	}
+	return
+}
+
+func Discover(url *url.URL) (feeds []Feed, err error) {
+	body, err := fetchUrl(url.String())
 	if err != nil {
 		return
 	}
-	defer resp.Body.Close()
 
-	doc, err := html.Parse(resp.Body)
+	doc, err := html.Parse(bytes.NewReader(body))
 	if err != nil {
 		return
 	}
