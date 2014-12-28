@@ -114,7 +114,7 @@ func fakeListFriends() ([]Friend, error) {
 
 func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
 	// NOTE: Use this for local development without hitting the Twitter API
-	return fakeListFriends()
+	// return fakeListFriends()
 
 	result := make([]Friend, 0, 1000)
 
