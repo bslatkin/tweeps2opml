@@ -60,19 +60,46 @@ var (
         <h1>Tweeps 2 OPML</h1>
         <h2>Found {{. | len}} friends with URLs</h2>
     </div>
+    <div>
+        <p>
+            This download can take a while because we have to fetch many web pages and parse their HTML content to discover feeds. For 1000+ friends this may take up to 10 minutes. So please be patient!
+        </p>
+        <p>
+            Once the download finishes, you should be able to import the resulting OPML file into your feed reader. Here's how to do it for <a href="http://www.onebigfluke.com/2014/12/how-to-import-opml-file-of-rss-feeds.html">NewsBlur</a>, <a href="http://blog.feedly.com/2013/07/03/the-fix-to-the-missing-feeds-issue-is-here/">Feedly</a>, <a href="http://theoldreader.com/pages/tour">The Old Reader</a>, and <a href="http://www.cnet.com/how-to/how-to-import-your-google-reader-data-to-digg-reader/">Digg Reader</a>.
+        </p>
+    </div>
     <form action="/download" method="POST" target="_blank">
     {{range .}}
-        <input name="{{.ScreenName}}" value="{{.URL}}" type="hidden" />
+        <input name="{{.ScreenName}}" value="{{.ProfileUrl}}" type="hidden" />
     {{end}}
-    <input class="submit" type="submit" value="Download feeds" />
+        <input class="submit" type="submit" value="Download feeds" />
     </form>
 </body>
 </html>
 `))
 )
 
-func listFriends(api *anaconda.TwitterApi) ([]anaconda.User, error) {
-	result := make([]anaconda.User, 0, 1000)
+type Friend struct {
+	ScreenName string
+	ProfileUrl string
+}
+
+func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
+	// NOTE: Use this for local development without hitting the Twitter API
+	return []Friend{
+		// Both Atom and RSS
+		Friend{"haxor", "http://onebigfluke.com"},
+		// Relative feed URL
+		Friend{"t", "http://tantek.com"},
+		// A lot of feeds with the same content
+		Friend{"adactio", "http://adactio.com"},
+		// No feed title
+		Friend{"polvi", "http://alex.polvi.net"},
+		// Wikipedia link
+		Friend{"evanpro", "https://en.wikipedia.org/wiki/Evan_Prodromou"},
+	}, nil
+
+	result := make([]Friend, 0, 1000)
 
 	values := url.Values{}
 	values.Set("cursor", "-1")
@@ -84,7 +111,7 @@ func listFriends(api *anaconda.TwitterApi) ([]anaconda.User, error) {
 	for i := 0; i < 15; i++ {
 		cursor, err := api.GetFriendsList(values)
 		if err != nil {
-			return []anaconda.User{}, err
+			return []Friend{}, err
 		}
 		if len(cursor.Users) == 0 {
 			break
@@ -93,7 +120,7 @@ func listFriends(api *anaconda.TwitterApi) ([]anaconda.User, error) {
 			if user.URL == "" {
 				continue
 			}
-			result = append(result, user)
+			result = append(result, Friend{user.ScreenName, user.URL})
 		}
 		values.Set("cursor", cursor.Next_cursor_str)
 	}

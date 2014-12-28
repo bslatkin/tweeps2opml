@@ -19,11 +19,11 @@ package main
 import (
 	"fmt"
 	"log"
-	"net"
 	"net/http"
 	"os"
 
 	"github.com/bslatkin/go-signin-with-twitter"
+	"github.com/gorilla/context"
 )
 
 func init() {
@@ -38,14 +38,9 @@ func init() {
 
 func main() {
 	port := os.Getenv("SERVER_PORT")
-	socket, err := net.Listen("tcp", fmt.Sprintf(":%s", port))
-	if err != nil {
-		panic(err)
-	}
 	log.Printf("Listening on port %s\n", port)
-
-	server := &http.Server{}
-	if err := server.Serve(socket); err != nil {
-		panic(err)
+	// Wrap the DefaultServerMux to prevent memory leaks from Gorilla.
+	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), context.ClearHandler(http.DefaultServeMux)); err != nil {
+		log.Fatal(err)
 	}
 }

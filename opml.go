@@ -35,18 +35,13 @@ var (
     <body>
         <outline text="Twitter Friends" title="Twitter Friends">
         {{range .}}{{if .Feed.Url}}
-	        <outline text="{{.ScreenName}} - {{.Feed.Title | html}}" title="{{.ScreenName}} - {{.Feed.Title | html}}" type="rss" xmlUrl="{{.Feed.Url | html}}" />
+	        <outline text="{{.ScreenName}}{{if .Feed.Title}} - {{.Feed.Title | html}}{{end}}" title="{{.ScreenName}}{{if .Feed.Title}} - {{.Feed.Title | html}}{{end}}" type="rss" xmlUrl="{{.Feed.Url | html}}" />
 	    {{end}}{{end}}
         </outline>
     </body>
 </opml>
 `))
 )
-
-type Friend struct {
-	ScreenName string
-	ProfileUrl string
-}
 
 type Work struct {
 	Friend
