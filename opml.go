@@ -144,7 +144,7 @@ func downloadHandler(w http.ResponseWriter, r *http.Request) {
 	out := make(chan *Work, len(r.PostForm))
 	go discoverParallel(out, friends)
 
-	w.Header().Set("Content-Disposition", "attachment; filename=twitter_friends.opml")
+	w.Header().Set("Content-Disposition", "attachment; filename=twitter_friends.xml")
 	w.Header().Set("Content-Type", "text/xml")
 	opmlTemplate.Execute(w, out)
 }
