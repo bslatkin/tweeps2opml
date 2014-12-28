@@ -19,6 +19,7 @@ package disco
 import (
 	"net/http"
 	"net/url"
+	"sort"
 	"strings"
 	"time"
 
@@ -27,7 +28,7 @@ import (
 
 type Feed struct {
 	Title string
-	URL   *url.URL
+	Url   string
 }
 
 func traverse(rootUrl *url.URL, node *html.Node) []Feed {
@@ -52,7 +53,7 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 			if parsed, err := url.Parse(href); err == nil {
 				result = append(result, Feed{
 					Title: title,
-					URL:   rootUrl.ResolveReference(parsed),
+					Url:   rootUrl.ResolveReference(parsed).String(),
 				})
 			}
 		}
@@ -94,4 +95,54 @@ func Discover(url *url.URL) (feeds []Feed, err error) {
 
 	feeds = traverse(url, doc)
 	return
+}
+
+type FeedLengthSorter []Feed
+
+func (f FeedLengthSorter) Len() int {
+	return len(f)
+}
+
+func (f FeedLengthSorter) Less(i, j int) bool {
+	return len(f[i].Url) < len(f[j].Url)
+}
+
+func (f FeedLengthSorter) Swap(i, j int) {
+	f[i], f[j] = f[j], f[i]
+}
+
+func GetPrimaryFeed(feeds []Feed) Feed {
+	comments := map[string]Feed{}
+	content := map[string]Feed{}
+
+	// Dedupe all the URLs.
+	for _, feed := range feeds {
+		if strings.Contains(feed.Url, "comments") {
+			comments[feed.Url] = feed
+		} else {
+			content[feed.Url] = feed
+		}
+	}
+
+	// Allow the comment feeds to be considered if there are no other feeds.
+	if len(content) == 0 {
+		for feedUrl, feed := range comments {
+			content[feedUrl] = feed
+		}
+	}
+
+	// No feeds found to consider.
+	if len(content) == 0 {
+		return Feed{}
+	}
+
+	filtered := make([]Feed, 0, len(content))
+	for _, feed := range content {
+		filtered = append(filtered, feed)
+	}
+
+	sort.Sort(FeedLengthSorter(filtered))
+
+	// Return the shortest URL, which is usually the primary feed, often Atom.
+	return filtered[0]
 }
