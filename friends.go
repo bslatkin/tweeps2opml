@@ -84,8 +84,7 @@ type Friend struct {
 	ProfileUrl string
 }
 
-func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
-	// NOTE: Use this for local development without hitting the Twitter API
+func fakeListFriends() ([]Friend, error) {
 	return []Friend{
 		// Both Atom and RSS
 		Friend{"haxor", "http://onebigfluke.com"},
@@ -97,7 +96,14 @@ func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
 		Friend{"polvi", "http://alex.polvi.net"},
 		// Wikipedia link
 		Friend{"evanpro", "https://en.wikipedia.org/wiki/Evan_Prodromou"},
+		// Usually has EOF errors because of an old web server
+		Friend{"markos", "http://www.dailykos.com"},
 	}, nil
+}
+
+func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
+	// NOTE: Use this for local development without hitting the Twitter API
+	return fakeListFriends()
 
 	result := make([]Friend, 0, 1000)
 
