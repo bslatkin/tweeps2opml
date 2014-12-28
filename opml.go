@@ -61,6 +61,8 @@ func doWork(work *Work) {
 		work.Done <- work
 	}()
 
+	log.Printf("Considering %s = %s", work.ScreenName, work.ProfileUrl)
+
 	parsed, err := url.Parse(work.ProfileUrl)
 	if err != nil {
 		log.Printf("Could not parse url=%s err=%s", work.ProfileUrl, err)
@@ -86,7 +88,7 @@ func discoverParallel(out chan<- *Work, friends []Friend) {
 	defer close(input)
 
 	// Limit the goroutines to N fetches in parallel
-	for i := 0; i < 20; i++ {
+	for i := 0; i < 50; i++ {
 		go func() {
 			for work := range input {
 				doWork(work)

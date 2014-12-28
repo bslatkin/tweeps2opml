@@ -17,6 +17,7 @@
 package disco
 
 import (
+	"math/rand"
 	"net/http"
 	"net/url"
 	"sort"
@@ -75,13 +76,14 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 
 func Discover(url *url.URL) (feeds []Feed, err error) {
 	var resp *http.Response
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 5; i++ {
 		// TODO: Handle EOF errors here by using req.Header.Add("Accept-Encoding", "identity")
+		// TODO: Configure a timeout of 10 seconds
 		resp, err = http.Get(url.String())
 		if err == nil {
 			break
 		}
-		time.Sleep(time.Duration(3) * time.Second)
+		time.Sleep(time.Duration(1+rand.Intn(10)) * time.Second)
 	}
 	if err != nil {
 		return
