@@ -21,9 +21,14 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/bslatkin/go-signin-with-twitter"
 	"github.com/gorilla/context"
+)
+
+const (
+	logsTarget = "/var/log/app_engine/custom_logs/tweeps2opml.log"
 )
 
 func init() {
@@ -33,7 +38,24 @@ func init() {
 	http.HandleFunc("/authorize", signin.AuthorizeHandler)
 	http.HandleFunc("/oauth_callback", signin.OauthCallbackHandler)
 
-	// TODO: Configure logger to write to /var/log/app_engine/custom_logs if in the App Engine environment. See https://cloud.google.com/appengine/articles/logging
+	// Configure logger to write to /var/log/app_engine/custom_logs if in the App Engine environment so it gets picked up in the admin console. See https://cloud.google.com/appengine/articles/logging
+	if os.Getenv("APPENGINE_PRODUCTION") != "" {
+		log.Printf("Attempting to write logs to a file")
+
+		if err := os.MkdirAll(filepath.Dir(logsTarget), 0666); err != nil {
+			log.Printf("Could not create logs directory: %s", err)
+			return
+		}
+
+		writer, err := os.OpenFile(logsTarget, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+		if err != nil {
+			log.Printf("Could not set log default output to file: %s", err)
+			return
+		}
+		log.SetOutput(writer)
+
+		log.Printf("Writing logs to file")
+	}
 }
 
 func main() {

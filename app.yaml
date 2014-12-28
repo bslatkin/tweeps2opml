@@ -25,3 +25,6 @@ handlers:
 - url: /.*
   secure: always
   script: _go_app
+
+env_variables:
+  APPENGINE_PRODUCTION: true

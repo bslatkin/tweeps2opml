@@ -18,7 +18,6 @@ package main
 
 import (
 	"bytes"
-	"crypto/tls"
 	"io/ioutil"
 	"log"
 	"math/rand"
@@ -83,29 +82,25 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 	return result
 }
 
+// TODO: Figure out how to use InsecureSkipVerify and TLSHandshakeTimeout on App Engine using reflection so we don't need two build targets.
+
 // Use this for the first attempt.
 var transport http.RoundTripper = &http.Transport{
 	Proxy: http.ProxyFromEnvironment,
 	Dial: (&net.Dialer{
-		Timeout:   10 * time.Second,
-		KeepAlive: 0,
+		Timeout: 10 * time.Second,
 	}).Dial,
-	TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
-	TLSHandshakeTimeout: 10 * time.Second,
-	DisableKeepAlives:   true,
+	DisableKeepAlives: true,
 }
 
 // Use this for flaky feeds.
 var flakyTransport http.RoundTripper = &http.Transport{
 	Proxy: http.ProxyFromEnvironment,
 	Dial: (&net.Dialer{
-		Timeout:   10 * time.Second,
-		KeepAlive: 0,
+		Timeout: 10 * time.Second,
 	}).Dial,
-	TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
-	TLSHandshakeTimeout: 10 * time.Second,
-	DisableKeepAlives:   true,
-	DisableCompression:  true,
+	DisableKeepAlives:  true,
+	DisableCompression: true,
 }
 
 func fetchUrl(url string) (result []byte, err error) {
