@@ -183,8 +183,8 @@ func GetPrimaryFeed(feeds []Feed) Feed {
 
 	// Dedupe all the URLs.
 	for _, feed := range feeds {
-		if strings.Contains(feed.Url, "wikipedia.org") {
-			// People like to link to wikipedia, but the only Atom feed they provide is *all* changes to all pages, not just the one linked to.
+		if strings.Contains(feed.Url, "Special:RecentChanges") {
+			// People like to link to Wikipedia (or other wikis), but the only Atom feed they provide is *all* changes to all pages, not just the one linked to.
 			continue
 		} else if strings.Contains(feed.Url, "comments") {
 			comments[feed.Url] = feed
