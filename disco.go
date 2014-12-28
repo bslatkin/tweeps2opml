@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package disco
+package main
 
 import (
 	"math/rand"
@@ -98,17 +98,17 @@ func Discover(url *url.URL) (feeds []Feed, err error) {
 	return
 }
 
-type FeedLengthSorter []Feed
+type feedLengthSorter []Feed
 
-func (f FeedLengthSorter) Len() int {
+func (f feedLengthSorter) Len() int {
 	return len(f)
 }
 
-func (f FeedLengthSorter) Less(i, j int) bool {
+func (f feedLengthSorter) Less(i, j int) bool {
 	return len(f[i].Url) < len(f[j].Url)
 }
 
-func (f FeedLengthSorter) Swap(i, j int) {
+func (f feedLengthSorter) Swap(i, j int) {
 	f[i], f[j] = f[j], f[i]
 }
 
@@ -142,7 +142,7 @@ func GetPrimaryFeed(feeds []Feed) Feed {
 		filtered = append(filtered, feed)
 	}
 
-	sort.Sort(FeedLengthSorter(filtered))
+	sort.Sort(feedLengthSorter(filtered))
 
 	// Return the shortest URL, which is usually the primary feed, often Atom.
 	return filtered[0]

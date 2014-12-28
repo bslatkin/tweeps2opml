@@ -1,0 +1,27 @@
+module: default
+vm: true
+runtime: go
+api_version: go1
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 3
+  cool_down_period_sec: 60
+  cpu_utilization:
+    target_utilization: 0.8
+
+resources:
+  cpu: 1
+  memory_gb: 0.5
+
+# Allow dotfiles
+skip_files:
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+
+handlers:
+- url: /.*
+  secure: always
+  script: _go_app

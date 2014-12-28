@@ -24,8 +24,17 @@ import (
 	"os"
 
 	"github.com/bslatkin/go-signin-with-twitter"
-	"github.com/gorilla/mux"
 )
+
+func init() {
+	http.HandleFunc("/", homepageHandler)
+	http.HandleFunc("/list", listFriendsHandler)
+	http.HandleFunc("/download", downloadHandler)
+	http.HandleFunc("/authorize", signin.AuthorizeHandler)
+	http.HandleFunc("/oauth_callback", signin.OauthCallbackHandler)
+
+	// TODO: Configure logger to write to /var/log/app_engine/custom_logs if in the App Engine environment. See https://cloud.google.com/appengine/articles/logging
+}
 
 func main() {
 	port := os.Getenv("SERVER_PORT")
@@ -35,14 +44,7 @@ func main() {
 	}
 	log.Printf("Listening on port %s\n", port)
 
-	r := mux.NewRouter()
-	r.HandleFunc("/", homepageHandler)
-	r.HandleFunc("/list", listFriendsHandler)
-	r.HandleFunc("/download", downloadHandler)
-	r.HandleFunc("/authorize", signin.AuthorizeHandler)
-	r.HandleFunc("/oauth_callback", signin.OauthCallbackHandler)
-
-	server := &http.Server{Handler: r}
+	server := &http.Server{}
 	if err := server.Serve(socket); err != nil {
 		panic(err)
 	}

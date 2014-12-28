@@ -23,8 +23,6 @@ import (
 	"sort"
 	"strings"
 	"text/template"
-
-	"github.com/bslatkin/tweeps2opml/disco"
 )
 
 var (
@@ -52,7 +50,7 @@ type Friend struct {
 
 type Work struct {
 	Friend
-	Feed disco.Feed
+	Feed Feed
 	Done chan *Work
 }
 
@@ -69,13 +67,13 @@ func doWork(work *Work) {
 		return
 	}
 
-	feeds, err := disco.Discover(parsed)
+	feeds, err := Discover(parsed)
 	if err != nil {
 		log.Printf("Could not discover url=%s err=%s", work.ProfileUrl, err)
 		return
 	}
 
-	work.Feed = disco.GetPrimaryFeed(feeds)
+	work.Feed = GetPrimaryFeed(feeds)
 	if work.Feed.Url != "" {
 		log.Printf("Discovered %s -> %s", work.ScreenName, work.Feed.Url)
 	}
