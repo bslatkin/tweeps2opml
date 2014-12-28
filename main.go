@@ -27,9 +27,20 @@ import (
 	"github.com/gorilla/context"
 )
 
+var (
+	Globals = map[string]string{
+		"AnalyticsId": os.Getenv("ANALYTICS_ID"),
+	}
+)
+
 const (
 	logsTarget = "/var/log/app_engine/custom_logs/tweeps2opml.log"
 )
+
+type Context struct {
+	Globals interface{}
+	Data    interface{}
+}
 
 func init() {
 	http.HandleFunc("/", homepageHandler)
