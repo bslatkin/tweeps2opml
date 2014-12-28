@@ -23,8 +23,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/bslatkin/go-signin-with-twitter"
 	"github.com/gorilla/mux"
-	"github.com/rodreegez/go-signin-with-twitter"
 )
 
 func main() {
