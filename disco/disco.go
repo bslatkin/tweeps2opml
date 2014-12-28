@@ -1,10 +1,12 @@
 package disco
 
 import (
-	"golang.org/x/net/html"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
+
+	"golang.org/x/net/html"
 )
 
 type Feed struct {
@@ -18,19 +20,19 @@ func traverse(rootUrl *url.URL, node *html.Node) []Feed {
 	if node.Type == html.ElementNode && node.Data == "link" {
 		var rel, linkType, title, href string
 		for _, attr := range node.Attr {
+			trimmed := Strings.TrimSpace(attr.Val)
 			switch attr.Key {
 			case "rel":
-				rel = attr.Val
+				rel = trimmed
 			case "type":
-				linkType = attr.Val
+				linkType = trimmed
 			case "title":
-				title = attr.Val
+				title = trimmed
 			case "href":
-				href = attr.Val
+				href = trimmed
 			}
 		}
 		if rel == "alternate" && href != "" && (linkType == "application/atom+xml" || linkType == "application/rss+xml") {
-			// TODO: Trim the href
 			if parsed, err := url.Parse(href); err == nil {
 				result = append(result, Feed{
 					Title: title,
