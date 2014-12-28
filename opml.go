@@ -20,7 +20,8 @@ import (
 	"log"
 	"net/http"
 	"net/url"
-	"sync"
+	"sort"
+	"strings"
 	"text/template"
 
 	"github.com/bslatkin/tweeps2opml/disco"
@@ -38,38 +39,44 @@ var (
     </head>
     <body>
         <outline text="Twitter Friends" title="Twitter Friends">
-        {{range .}}
-            <outline htmlUrl="{{.ProfileURL}}" text="{{.ScreenName}} - {{.Title}}" title="{{.ScreenName}} - {{.Title}}" type="rss" xmlUrl="{{.URL.String}}" />
-        {{end}}
+        {{range .}}{{if .Feeds}}
+        	<outline title="{{.ScreenName}}" text="{{.ScreenName}}" htmlUrl="{{.ProfileUrl}}">
+	        {{range .Feeds}}
+	            <outline text="{{.Title}}" title="{{.Title}}" type="rss" xmlUrl="{{.URL.String}}" />
+	        {{end}}
+	        </outline>
+	    {{end}}{{end}}
         </outline>
     </body>
 </opml>
 `))
 )
 
-type DiscoveryResult struct {
-	disco.Feed
+type Friend struct {
 	ScreenName string
-	ProfileURL string
+	ProfileUrl string
 }
 
-func discoverOne(screenName, profileUrl string, out chan<- DiscoveryResult, throttle chan int, wg *sync.WaitGroup) {
-	defer wg.Done()
+type Work struct {
+	Friend
+	Feeds []disco.Feed
+	Done  chan *Work
+}
 
-	token := <-throttle
+func doWork(work *Work) {
 	defer func() {
-		throttle <- token
+		work.Done <- work
 	}()
 
-	parsed, err := url.Parse(profileUrl)
+	parsed, err := url.Parse(work.ProfileUrl)
 	if err != nil {
-		log.Printf("Could not parse url=%s err=%s", profileUrl, err)
+		log.Printf("Could not parse url=%s err=%s", work.ProfileUrl, err)
 		return
 	}
 
 	feeds, err := disco.Discover(parsed)
 	if err != nil {
-		log.Printf("Could not discover url=%s err=%s", profileUrl, err)
+		log.Printf("Could not discover url=%s err=%s", work.ProfileUrl, err)
 		return
 	}
 
@@ -78,31 +85,53 @@ func discoverOne(screenName, profileUrl string, out chan<- DiscoveryResult, thro
 	// TODO: If ambiguous, pick the feed with the shortest URL
 	// TODO: Don't output duplicates
 	for _, result := range feeds {
-		log.Printf("Discovered %s -> %s", screenName, result.URL.String())
-		out <- DiscoveryResult{
-			Feed:       result,
-			ScreenName: screenName,
-			ProfileURL: profileUrl,
-		}
+		log.Printf("Discovered %s -> %s", work.ScreenName, result.URL.String())
+		work.Feeds = append(work.Feeds, result)
 	}
 }
 
-func discoverParallel(out chan<- DiscoveryResult, friends map[string]string) {
-	var wg sync.WaitGroup
-	wg.Add(len(friends))
+func discoverParallel(out chan<- *Work, friends []Friend) {
+	defer close(out)
+
+	input := make(chan *Work, len(friends))
+	defer close(input)
 
 	// Limit the goroutines to N fetches in parallel
-	throttle := make(chan int, 5)
-	for i := 0; i < cap(throttle); i++ {
-		throttle <- i
+	for i := 0; i < 10; i++ {
+		go func() {
+			for work := range input {
+				doWork(work)
+			}
+		}()
 	}
 
-	for screenName, profileUrl := range friends {
-		go discoverOne(screenName, profileUrl, out, throttle, &wg)
+	queued := make([]*Work, 0, len(friends))
+	for _, friend := range friends {
+		work := &Work{
+			Friend: friend,
+			Done:   make(chan *Work),
+		}
+		queued = append(queued, work)
+		input <- work
 	}
 
-	wg.Wait()
-	close(out)
+	for _, work := range queued {
+		out <- <-work.Done
+	}
+}
+
+type FriendList []Friend
+
+func (fl FriendList) Len() int {
+	return len(fl)
+}
+
+func (fl FriendList) Less(i, j int) bool {
+	return fl[i].ScreenName < fl[j].ScreenName
+}
+
+func (fl FriendList) Swap(i, j int) {
+	fl[i], fl[j] = fl[j], fl[i]
 }
 
 func downloadHandler(w http.ResponseWriter, r *http.Request) {
@@ -112,15 +141,19 @@ func downloadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	friends := make(map[string]string, len(r.PostForm))
+	friends := make([]Friend, 0, len(r.PostForm))
 	for key, values := range r.PostForm {
 		if len(values) == 1 {
-			friends[key] = values[0]
+			friends = append(friends, Friend{
+				ScreenName: strings.ToLower(key),
+				ProfileUrl: values[0],
+			})
 		}
 	}
+	sort.Sort(FriendList(friends))
 
-	out := make(chan DiscoveryResult, len(r.PostForm))
-	go discoverParallel(out, friends)
+	out := make(chan *Work, len(r.PostForm))
+	go discoverParallel(out, friends[:3])
 
 	w.Header().Set("Content-Disposition", "attachment; filename=twitter_friends.opml")
 	w.Header().Set("Content-Type", "text/xml")
