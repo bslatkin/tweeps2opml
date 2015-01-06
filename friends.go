@@ -17,7 +17,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -146,11 +145,11 @@ func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
 	return result, nil
 }
 
-func listFriendsHandler(w http.ResponseWriter, r *http.Request) {
+func listFriendsHandler(c *Context, w http.ResponseWriter, r *http.Request) {
 	userInfo, err := signin.GetUserInfo(r)
 	if userInfo == nil {
 		if err != nil {
-			log.Printf("Could not get access token: %s", err)
+			c.Log("Could not get access token: %s", err)
 		}
 		http.Redirect(w, r, "/", http.StatusFound)
 		return
@@ -162,11 +161,11 @@ func listFriendsHandler(w http.ResponseWriter, r *http.Request) {
 
 	allFriends, err := listFriends(api)
 	if err != nil {
-		log.Printf("Could not list friends: %s", err)
+		c.Log("Could not list friends: %s", err)
 		http.Error(w, "Could not list friends", http.StatusInternalServerError)
 		return
 	}
 
 	w.Header().Set("Content-Type", "text/html")
-	listFriendsTemplate.Execute(w, Context{Globals: Globals, Data: allFriends})
+	listFriendsTemplate.Execute(w, Params{Globals: Globals, Data: allFriends})
 }

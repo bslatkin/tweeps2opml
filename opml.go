@@ -17,7 +17,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -51,32 +50,32 @@ type Work struct {
 	Done chan *Work
 }
 
-func doWork(work *Work) {
+func doWork(c *Context, work *Work) {
 	defer func() {
 		work.Done <- work
 	}()
 
-	log.Printf("Considering %s = %s", work.ScreenName, work.ProfileUrl)
+	c.Log("Considering %s = %s", work.ScreenName, work.ProfileUrl)
 
 	parsed, err := url.Parse(work.ProfileUrl)
 	if err != nil {
-		log.Printf("Could not parse url=%s err=%s", work.ProfileUrl, err)
+		c.Log("Could not parse url=%s err=%s", work.ProfileUrl, err)
 		return
 	}
 
-	feeds, err := Discover(parsed)
+	feeds, err := Discover(c, parsed)
 	if err != nil {
-		log.Printf("Could not discover url=%s err=%s", work.ProfileUrl, err)
+		c.Log("Could not discover url=%s err=%s", work.ProfileUrl, err)
 		return
 	}
 
 	work.Feed = GetPrimaryFeed(feeds)
 	if work.Feed.Url != "" {
-		log.Printf("Discovered %s -> %s", work.ScreenName, work.Feed.Url)
+		c.Log("Discovered %s -> %s", work.ScreenName, work.Feed.Url)
 	}
 }
 
-func discoverParallel(out chan<- *Work, friends []Friend) {
+func discoverParallel(c *Context, out chan<- *Work, friends []Friend) {
 	defer close(out)
 
 	input := make(chan *Work, len(friends))
@@ -90,7 +89,7 @@ func discoverParallel(out chan<- *Work, friends []Friend) {
 	for i := 0; i < maxParallel; i++ {
 		go func() {
 			for work := range input {
-				doWork(work)
+				doWork(c, work)
 			}
 		}()
 	}
@@ -124,9 +123,9 @@ func (fl FriendList) Swap(i, j int) {
 	fl[i], fl[j] = fl[j], fl[i]
 }
 
-func downloadHandler(w http.ResponseWriter, r *http.Request) {
+func downloadHandler(c *Context, w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
-		log.Printf("Could not parse friend list: %s", err)
+		c.Log("Could not parse friend list: %s", err)
 		http.Error(w, "Could not parse friend list", http.StatusBadRequest)
 		return
 	}
@@ -143,7 +142,7 @@ func downloadHandler(w http.ResponseWriter, r *http.Request) {
 	sort.Sort(FriendList(friends))
 
 	out := make(chan *Work, len(r.PostForm))
-	go discoverParallel(out, friends)
+	go discoverParallel(c, out, friends)
 
 	w.Header().Set("Content-Disposition", "attachment; filename=twitter_friends.xml")
 	w.Header().Set("Content-Type", "text/xml")

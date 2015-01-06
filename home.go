@@ -87,7 +87,7 @@ var (
 `))
 )
 
-func homepageHandler(w http.ResponseWriter, r *http.Request) {
+func homepageHandler(c *Context, w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	homepageTemplate.Execute(w, Context{Globals: Globals})
+	homepageTemplate.Execute(w, Params{Globals: Globals})
 }

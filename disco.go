@@ -20,7 +20,6 @@ import (
 	"bytes"
 	"crypto/tls"
 	"io/ioutil"
-	"log"
 	"math/rand"
 	"net"
 	"net/http"
@@ -106,7 +105,7 @@ var flakyTransport http.RoundTripper = &http.Transport{
 	TLSClientConfig:    &tls.Config{InsecureSkipVerify: true},
 }
 
-func fetchUrl(url string) (result []byte, err error) {
+func fetchUrl(c *Context, url string) (result []byte, err error) {
 	var req *http.Request
 	var resp *http.Response
 	var client *http.Client
@@ -139,15 +138,15 @@ func fetchUrl(url string) (result []byte, err error) {
 		}
 		if err != nil {
 			sleepTime := time.Duration(100 + rand.Intn(2000))
-			log.Printf("Error fetching %s: %s. Will retry in %d milliseconds", url, err, sleepTime)
+			c.Log("Error fetching %s: %s. Will retry in %d milliseconds", url, err, sleepTime)
 			time.Sleep(sleepTime * time.Millisecond)
 		}
 	}
 	return
 }
 
-func Discover(url *url.URL) (feeds []Feed, err error) {
-	body, err := fetchUrl(url.String())
+func Discover(c *Context, url *url.URL) (feeds []Feed, err error) {
+	body, err := fetchUrl(c, url.String())
 	if err != nil {
 		return
 	}
