@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -14,7 +15,8 @@ type Context struct {
 }
 
 func (c *Context) Log(format string, args ...interface{}) {
-	log.Printf(c.RequestId+": "+format, args...)
+	prefix := fmt.Sprintf("%s %s: ", c.RequestId, c.ScreenName)
+	log.Printf(prefix+format, args...)
 }
 
 type Handler func(*Context, http.ResponseWriter, *http.Request)

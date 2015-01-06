@@ -76,7 +76,13 @@ func doWork(c *Context, work *Work) {
 }
 
 func discoverParallel(c *Context, out chan<- *Work, friends []Friend) {
+	defer func() {
+		c.Log("Discovery end")
+	}()
+
 	defer close(out)
+
+	c.Log("Discovery start")
 
 	input := make(chan *Work, len(friends))
 	defer close(input)

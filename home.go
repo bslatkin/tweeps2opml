@@ -88,6 +88,10 @@ var (
 )
 
 func homepageHandler(c *Context, w http.ResponseWriter, r *http.Request) {
+	if r.RequestURI != "/" {
+		http.Error(w, "Unknown URL", http.StatusNotFound)
+		return
+	}
 	w.Header().Set("Content-Type", "text/html")
 	homepageTemplate.Execute(w, Params{Globals: Globals})
 }
