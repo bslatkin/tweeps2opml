@@ -124,8 +124,8 @@ func listFriends(api *anaconda.TwitterApi) ([]Friend, error) {
 	values.Set("include_user_entities", "false")
 	values.Set("count", "200")
 
-	// We're only allowed 15 requests every 15 minutes, so that's the most we'll even attempt to do. That means the most contacts you can export is 15 * 200 = 3000.
-	for i := 0; i < 15; i++ {
+	// We're only allowed 15 requests every 15 minutes, so that's the most we'll even attempt to do. That means the most contacts you can export is 15 * 200 = 3000. But the login call also counts as one, and we should leave in some breathing room for retries. So go with the 12 * 200 = 2400 most recent contacts.
+	for i := 0; i < 12; i++ {
 		cursor, err := api.GetFriendsList(values)
 		if err != nil {
 			return []Friend{}, err
