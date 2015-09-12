@@ -1,4 +1,4 @@
-# Tweeps 2 OPML — [Live version](https://tweeps2opml.appspot.com/)
+# Tweeps 2 OPML
 
 *Get the RSS feeds of all of my Twitter friends*
 
